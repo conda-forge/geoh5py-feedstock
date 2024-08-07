@@ -1,5 +1,5 @@
 {% set name = "geoh5py" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 71ef863971355dcaf255c5e1824be5cf091c87940ab930001ab08ca8bfd11441
+  sha256: c9a7790d527e93c4fa235a8a3097f3247b8463df51915038d322c30a8dd4081f
 
 build:
   noarch: python
