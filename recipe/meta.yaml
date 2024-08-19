@@ -21,9 +21,9 @@ requirements:
     - setuptools
     - pip
   run:
-    - python >=3.9.0,<4.0.0,<3.11
+    - python >=3.9.0,<3.11
     - h5py >=3.2.1,<4.0.0
-    - numpy >=1.23.5,<1.24.0
+    - numpy >=1.26,<1.27.0
     - pillow >=10.3.0,<10.4.0
 
 test:
@@ -45,8 +45,10 @@ about:
     along with open-source code from the Python ecosystem.
   license: LGPL-3.0-only
   license_file:
+    - LICENSE
     - COPYING
     - COPYING.LESSER
+    - THIRD_PARTY_SOFTWARE.rst
   doc_url: https://mirageoscience-geoh5py.readthedocs-hosted.com/
   dev_url: https://github.com/MiraGeoscience/geoh5py
 
