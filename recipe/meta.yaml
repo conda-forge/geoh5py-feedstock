@@ -45,7 +45,6 @@ about:
     along with open-source code from the Python ecosystem.
   license: LGPL-3.0-only
   license_file:
-    - LICENSE
     - COPYING
     - COPYING.LESSER
     - THIRD_PARTY_SOFTWARE.rst
