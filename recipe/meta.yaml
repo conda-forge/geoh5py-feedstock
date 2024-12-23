@@ -1,5 +1,7 @@
 {% set name = "geoh5py" %}
 {% set version = "0.9.0" %}
+{% set python_min = "3.9" %}
+{% set python_max = "3.13" %}
 
 package:
   name: {{ name|lower }}
@@ -16,12 +18,12 @@ build:
 
 requirements:
   host:
-    - python >=3.9,<3.11
+    - python {{ python_min }}
     - poetry-core >=1.0.0
     - setuptools
     - pip
   run:
-    - python >=3.9.0,<4.0.0,<3.11
+    - python >={{ python_min }},<{{ python_max }}
     - h5py >=3.2.1,<4.0.0
     - numpy >=1.23.5,<1.24.0
     - pillow >=10.3.0,<10.4.0
@@ -32,6 +34,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
