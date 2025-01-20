@@ -1,6 +1,6 @@
 {% set name = "geoh5py" %}
-{% set version = "0.9.2" %}
-{% set python_min = "3.9" %}
+{% set version = "0.10.0" %}
+{% set python_min = "3.10" %}
 {% set python_max = "3.13" %}
 
 package:
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 2b676ac046bee3fdf1af984e5b4c3bdf34fb9882064380244fd56c5b38e64939
+  sha256: 17f3a262971d8eb639c8e2b510a8aac37b6f4fb8004ae14291e8ee18ecd5b248
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -24,6 +24,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<{{ python_max }}
+    - pydantic >=2.5.2,<3.0.0
     - h5py >=3.2.1,<4.0.0
     - numpy >=1.26,<1.27.0
     - pillow >=10.3.0,<10.4.0
@@ -50,7 +51,7 @@ about:
   license_file:
     - COPYING
     - COPYING.LESSER
-    - THIRD_PARTY_SOFTWARE.rst
+    - docs/THIRD_PARTY_SOFTWARE.rst
   doc_url: https://mirageoscience-geoh5py.readthedocs-hosted.com/
   dev_url: https://github.com/MiraGeoscience/geoh5py
 
