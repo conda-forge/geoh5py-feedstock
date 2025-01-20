@@ -24,6 +24,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<{{ python_max }}
+    - pydantic >=2.5.2,<3.0.0
     - h5py >=3.2.1,<4.0.0
     - numpy >=1.26,<1.27.0
     - pillow >=10.3.0,<10.4.0
