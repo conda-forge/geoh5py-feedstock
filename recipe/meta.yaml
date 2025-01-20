@@ -50,7 +50,7 @@ about:
   license_file:
     - COPYING
     - COPYING.LESSER
-    - THIRD_PARTY_SOFTWARE.rst
+    - docs/THIRD_PARTY_SOFTWARE.rst
   doc_url: https://mirageoscience-geoh5py.readthedocs-hosted.com/
   dev_url: https://github.com/MiraGeoscience/geoh5py
 
