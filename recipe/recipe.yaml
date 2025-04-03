@@ -4,7 +4,6 @@ context:
   name: geoh5py
   version: 0.10.1
   python_min: 3.10
-  python_max: 3.13
 
 package:
   name: ${{ name|lower }}
@@ -15,7 +14,7 @@ source:
   sha256: e0f3c3c6d2b83a11ad77d38476e6ce8ba45b1ffef0888499ae67f693d7a67be7
 
 build:
-  number: 3
+  number: 4
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -26,7 +25,7 @@ requirements:
     - poetry-core >=1.0.0
     - setuptools
   run:
-    - python >=${{ python_min }},<${{ python_max }}
+    - python >=${{ python_min }}
     - h5py >=3.2.1,<4.0.0
     - numpy >=1.26,<1.27.0
     - pillow >=10.3.0,<10.4.0
@@ -34,7 +33,6 @@ requirements:
 
 tests:
   - python:
-      python_version: ${{ python_min }}.*
       imports:
         - geoh5py
       pip_check: true
