@@ -15,7 +15,7 @@ source:
   sha256: e0f3c3c6d2b83a11ad77d38476e6ce8ba45b1ffef0888499ae67f693d7a67be7
 
 build:
-  number: 2
+  number: 3
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -38,6 +38,16 @@ tests:
       imports:
         - geoh5py
       pip_check: true
+  - script:
+      - pytest --ignore=tests/geoh5py_test.py
+    requirements:
+      run:
+        - pytest
+        - scipy >= 1.14.0, <1.15.dev
+    files:
+      source:
+        - tests/
+
 about:
   summary: Python API for geoh5, an open file format for geoscientific data.
   description: |
