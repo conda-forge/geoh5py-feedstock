@@ -39,7 +39,7 @@ tests:
         - geoh5py
       pip_check: true
   - script:
-      - pytest --ignore=tests/version_test.py
+      - pytest --ignore=tests/geoh5py_test.py
     requirements:
       run:
         - pytest
