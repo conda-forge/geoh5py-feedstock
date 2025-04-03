@@ -19,7 +19,6 @@ be able to directly leverage the powerful visualization capabilities of
 (Geoscience ANALYST)<https://mirageoscience.com/mining-industry-software/geoscience-analyst/>
 along with open-source code from the Python ecosystem.
 
-
 Current build status
 ====================
 

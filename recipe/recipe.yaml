@@ -1,0 +1,61 @@
+schema_version: 1
+
+context:
+  name: geoh5py
+  version: 0.10.1
+  python_min: 3.10
+  python_max: 3.13
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
+  sha256: e0f3c3c6d2b83a11ad77d38476e6ce8ba45b1ffef0888499ae67f693d7a67be7
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - poetry-core >=1.0.0
+    - setuptools
+  run:
+    - python >=${{ python_min }},<${{ python_max }}
+    - h5py >=3.2.1,<4.0.0
+    - numpy >=1.26,<1.27.0
+    - pillow >=10.3.0,<10.4.0
+    - pydantic >=2.5.2,<3.0.0
+
+tests:
+  - python:
+      python_version: ${{ python_min }}.*
+      imports:
+        - geoh5py
+      pip_check: true
+about:
+  summary: Python API for geoh5, an open file format for geoscientific data.
+  description: |
+    The geoh5py library has been created for the manipulation and storage of a wide range of
+    geoscientific data (points, curve, surface, 2D and 3D grids) in GEOH5 file format. Users will
+    be able to directly leverage the powerful visualization capabilities of
+    (Geoscience ANALYST)<https://mirageoscience.com/mining-industry-software/geoscience-analyst/>
+    along with open-source code from the Python ecosystem.
+  license: LGPL-3.0-only
+  license_file:
+    - COPYING
+    - COPYING.LESSER
+    - docs/THIRD_PARTY_SOFTWARE.rst
+  homepage: https://www.mirageoscience.com/mining-industry-software/python-integration/
+  repository: https://github.com/MiraGeoscience/geoh5py
+  documentation: https://mirageoscience-geoh5py.readthedocs-hosted.com/
+
+extra:
+  recipe-maintainers:
+    - andrewg-mira
+    - sebhmg
