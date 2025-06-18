@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: geoh5py
-  version: 0.10.1
-  python_min: 3.10
+  version: "0.11.0"
+  python_min: '3.10'
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: e0f3c3c6d2b83a11ad77d38476e6ce8ba45b1ffef0888499ae67f693d7a67be7
+  sha256: 847f6ece54c3e65bc45dc27cc3b0b0dcf5c1f78dea3d2fca55822a9a5b3d12fe
 
 build:
-  number: 5
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
