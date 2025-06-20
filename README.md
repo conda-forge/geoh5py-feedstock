@@ -154,5 +154,7 @@ Feedstock Maintainers
 =====================
 
 * [@andrewg-mira](https://github.com/andrewg-mira/)
+* [@domfournier](https://github.com/domfournier/)
+* [@saicheranb](https://github.com/saicheranb/)
 * [@sebhmg](https://github.com/sebhmg/)
 
