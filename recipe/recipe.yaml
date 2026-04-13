@@ -4,6 +4,7 @@ context:
   name: geoh5py
   version: "0.12.0"
   python_min: '3.10'
+  module_name: ${{ name|lower|replace("-", "_") }}
 
 package:
   name: ${{ name|lower }}
@@ -22,30 +23,35 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - poetry-core >=1.0.0
+    - poetry-core >=1.8.0
+    - poetry-dynamic-versioning >=1.9, 1.*
     - setuptools
   run:
     - python >=${{ python_min }}
-    - h5py >=3.2.1, <4.0.dev
-    - numpy >=1.26.0, <1.27.dev
-    - pillow >=10.3.0, <10.4.dev
-    - pydantic >=2.5.2, <3.0.dev
+    - h5py >=3.2.1, 3.*
+    - numpy >=1.26.0, 1.26.*
+    - pillow >=10.3.0, 10.3.*
+    - pydantic 2.11.*
 
 tests:
   - python:
       python_version: ${{ python_min }}.*
       imports:
-        - geoh5py
+        - ${{ module_name }}
+        - ${{ module_name }}._version
       pip_check: true
   - script:
       - pytest --ignore=tests/version_test.py
     requirements:
       run:
         - pytest
-        - scipy >= 1.14.0, <1.15.dev
+        - scipy 1.14.*
     files:
       source:
         - tests/
+  - package_contents:
+      files:
+        - site-packages/${{ module_name }}/_version.py
 
 about:
   summary: Python API for geoh5, an open file format for geoscientific data.
